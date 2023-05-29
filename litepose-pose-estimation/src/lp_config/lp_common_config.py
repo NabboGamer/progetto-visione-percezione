@@ -5,6 +5,7 @@ config = dict(
     #COMMON
     #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
     device = torch.device("cpu"),
+    #dataset_root = os.path.join(os.environ.get("HOME"), "dataset/crowdpose"),
     dataset_root = "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\litepose-pose-estimation\\CrowdPose",
     num_joints = 14,
     max_people = 30,

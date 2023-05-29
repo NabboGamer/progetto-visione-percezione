@@ -112,7 +112,7 @@ def getCloserElement(value, listb):
     return bestCandidate, bestCandidatecpy, bestCandidateIdx
 
 
-# Output: list of [(x,y),(x',y'))] where each pair indicate an edge between those two points
+# Output: list of [(x,y),(x',y')] where each pair indicate an edge between those two points
 @torch.no_grad()
 def assocEmbedding(kps):
     totout = []
