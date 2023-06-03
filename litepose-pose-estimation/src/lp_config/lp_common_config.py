@@ -33,7 +33,7 @@ crowd_pose_part_labels = [
     'head', 'neck'
 ]
 crowd_pose_part_idx = {
-    b: a for a, b in enumerate(crowd_pose_part_labels)
+    b: a for a, b in enumerate(crowd_pose_part_labels) # dictionary comprehension
 }
 #crowd_pose_part_orders = [
 #    ('head', 'neck'), ('neck', 'left_shoulder'), ('neck', 'right_shoulder'),
