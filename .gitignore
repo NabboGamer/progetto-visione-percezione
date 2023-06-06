@@ -1,17 +1,4 @@
-﻿## litepose file
-# ignore dataset files 
-litepose-pose-estimation/CrowdPose/images
+﻿litepose-pose-estimation/CrowdPose/images
 litepose-pose-estimation/CrowdPose/json
-# ignore __pycache__ folders in modules of litepose
-litepose-pose-estimation\src\lp_coco_utils\__pycache__
-litepose-pose-estimation\src\lp_config\__pycache__
-litepose-pose-estimation\src\lp_inference\__pycache__
-litepose-pose-estimation\src\lp_model\__pycache__
-litepose-pose-estimation\src\lp_testing\__pycache__
-litepose-pose-estimation\src\lp_trained_models\__pycache__
-litepose-pose-estimation\src\lp_training\__pycache__
-litepose-pose-estimation\src\lp_utils\__pycache__
-## ignore user-local config 
 config/config.json
-## ignore multimedia files
 *.mp4
