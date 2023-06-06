@@ -2,3 +2,14 @@
 litepose-pose-estimation/CrowdPose/json
 config/config.json
 *.mp4
+litepose-pose-estimation/src/lp_coco_utils/__pycache__
+litepose-pose-estimation/src/lp_config/__pycache__
+litepose-pose-estimation/src/lp_inference/__pycache__
+litepose-pose-estimation/src/lp_model/__pycache__
+litepose-pose-estimation/src/lp_coco_utils/__pycache__
+litepose-pose-estimation/src/lp_config/__pycache__
+litepose-pose-estimation/src/lp_inference/__pycache__
+litepose-pose-estimation/src/lp_testing/__pycache__
+litepose-pose-estimation/src/lp_utils/__pycache__
+litepose-pose-estimation/src/lp_training/__pycache__
+litepose-pose-estimation/src/lp_model/__pycache__

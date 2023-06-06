@@ -35,17 +35,17 @@ crowd_pose_part_labels = [
 crowd_pose_part_idx = {
     b: a for a, b in enumerate(crowd_pose_part_labels) # dictionary comprehension
 }
-#crowd_pose_part_orders = [
-#    ('head', 'neck'), ('neck', 'left_shoulder'), ('neck', 'right_shoulder'),
-#    ('left_shoulder', 'right_shoulder'), ('left_shoulder', 'left_hip'),
-#    ('right_shoulder', 'right_hip'), ('left_hip', 'right_hip'), ('left_shoulder', 'left_elbow'),
-#    ('left_elbow', 'left_wrist'), ('right_shoulder', 'right_elbow'), ('right_elbow', 'right_wrist'),
-#    ('left_hip', 'left_knee'), ('left_knee', 'left_ankle'), ('right_hip', 'right_knee'),
-#    ('right_knee', 'right_ankle')
-#]
 crowd_pose_part_orders = [
-    ('neck', 'left_shoulder'), ('neck', 'right_shoulder'),
+    ('head', 'neck'), ('neck', 'left_shoulder'), ('neck', 'right_shoulder'),
     ('left_shoulder', 'right_shoulder'), ('left_shoulder', 'left_hip'),
     ('right_shoulder', 'right_hip'), ('left_hip', 'right_hip'), ('left_shoulder', 'left_elbow'),
-    ('left_elbow', 'left_wrist'), ('right_shoulder', 'right_elbow'), ('right_elbow', 'right_wrist')
+    ('left_elbow', 'left_wrist'), ('right_shoulder', 'right_elbow'), ('right_elbow', 'right_wrist'),
+    ('left_hip', 'left_knee'), ('left_knee', 'left_ankle'), ('right_hip', 'right_knee'),
+    ('right_knee', 'right_ankle')
 ]
+#crowd_pose_part_orders = [
+#    ('neck', 'left_shoulder'), ('neck', 'right_shoulder'),
+#    ('left_shoulder', 'right_shoulder'), ('left_shoulder', 'left_hip'),
+#    ('right_shoulder', 'right_hip'), ('left_hip', 'right_hip'), ('left_shoulder', 'left_elbow'),
+#    ('left_elbow', 'left_wrist'), ('right_shoulder', 'right_elbow'), ('right_elbow', 'right_wrist')
+#]
