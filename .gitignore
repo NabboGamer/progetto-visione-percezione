@@ -13,3 +13,4 @@ litepose-pose-estimation/src/lp_testing/__pycache__
 litepose-pose-estimation/src/lp_utils/__pycache__
 litepose-pose-estimation/src/lp_training/__pycache__
 litepose-pose-estimation/src/lp_model/__pycache__
+src/referee_gloves_detector/__pycache__

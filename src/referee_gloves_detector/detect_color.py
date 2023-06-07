@@ -1,8 +1,7 @@
 ## per lanciare il codice aprire il terminale e scrivere "$ python detect_color.py --image example_shapes.png"
 
 # importa i package necessari
-from pyimagesearch.shapedetector import ShapeDetector
-from pyimagesearch.colorlabeler import ColorLabeler
+from color_labeler import ColorLabeler
 import argparse
 import imutils
 import cv2
@@ -44,6 +43,9 @@ for c in cnts:
 	# rileva la forma del contorno ed etichetta il colore
 	# shape = sd.detect(c)
 	color = cl.label(lab, c)
+	print(color)
+	print(type(color))
+	if(color != "red"):continue
 	# moltiplica le coordinate-(x,y) del contorno per il rapporto d'aspetto ridimensionato,
 	# poi disegna i contorni e il nome della forma assieme al colore etichettato sull'immagine 
 	c = c.astype("float")
