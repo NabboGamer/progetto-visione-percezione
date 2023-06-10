@@ -11,7 +11,7 @@ def segmentation_and_cropping(image, full_mask):
     y = 0 
     h = image.shape[0]
     # creo un rettangolo a partire dalla ROI
-    cv2.rectangle(rectangle_image, (x,y), (x+w,y+h), (255,0,0), 0)
+    #cv2.rectangle(rectangle_image, (x,y), (x+w,y+h), (255,0,0), 0)
     # croppo l'immagine usando la ROI
     if (x-extra_margin) < 0 and (x+w+extra_margin) < image.shape[1]:
         cropped_image = rectangle_image[y:y+h, 0:(x+w+extra_margin)]
