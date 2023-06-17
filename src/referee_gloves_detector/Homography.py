@@ -88,7 +88,7 @@ class Homography():
         background = self.src
         dh, dw, _ = background.shape
 
-        keypoints = pandas.read_csv("imgs/keypoints.csv")
+        keypoints = pandas.read_csv("resources/keypoints.csv")
         keypoints = keypoints.dropna()
         
         for _, row in keypoints.iterrows():
