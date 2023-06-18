@@ -53,8 +53,7 @@ class Homography():
 
             s_x, s_y = np.sqrt(2 / var_x), np.sqrt(2 / var_y)
 
-            print("Matrix: {4} : meanx {0}, meany {1}, varx {2}, vary {3}, sx {5}, sy {6} ".format(x_mean, y_mean, var_x,
-                                                                                                   var_y, name, s_x, s_y))
+            #print("Matrix: {4} : meanx {0}, meany {1}, varx {2}, vary {3}, sx {5}, sy {6} ".format(x_mean, y_mean, var_x,var_y, name, s_x, s_y))
 
             n = np.array([[s_x, 0, -s_x * x_mean], [0, s_y, -s_y * y_mean], [0, 0, 1]])
             # print(n)
@@ -77,8 +76,8 @@ class Homography():
         normalized_hom_imp = hom_imp
         normalized_hom_objp = hom_objp
 
-        print("Numero punti campo reale: " + str(normalized_hom_objp.shape[0]))
-        print("Numero punti campo virtuale: " + str(normalized_hom_imp.shape[0]))
+        #print("Numero punti campo reale: " + str(normalized_hom_objp.shape[0]))
+        #print("Numero punti campo virtuale: " + str(normalized_hom_imp.shape[0]))
         for i in range(normalized_hom_objp.shape[0]):
             # 54 points. iterate one by one
             # all points are homogeneous
@@ -122,8 +121,7 @@ class Homography():
 
         for _, row in keypoints.iterrows():
             x, y = row['x'], row['y']
-            print(x)
-            print(y)
+            print('(' + str(x) + ' , ' + str(y) + ')')
             self.src_list.append([int(x), int(y)])
             cv2.circle(self.src_copy, (int(x), int(y)), 0, (0, 0, 255), 10)
 
@@ -162,38 +160,47 @@ class Homography():
 
         for _, row in keypoints.iterrows():
             x, y = row['x'], row['y']
-            print(x)
-            print(y)
+            #print('(' + str(x) + ' , ' + str(y) + ')')
             self.src_list.append([int(x), int(y)])
-        self.src_list = sorted(self.src_list, key = lambda a: (a[0], a[1]))
-        kmeans = KMeans(n_clusters=3, random_state=0).fit(self.src_list)
+        print('Lista prima dell\' ordinamento:')
         print(self.src_list)
-        print(kmeans.labels_)
+        self.src_list = sorted(self.src_list, key = lambda a: (a[0], a[1]))
+        print('Lista dopo dell\' ordinamento:')
+        print(self.src_list)
+        kmeans = KMeans(n_clusters=4, random_state=0).fit(self.src_list)
+        labels = kmeans.labels_
+        for i in range(len(self.src_list)):
+            print("Elemento:", self.src_list[i], " Gruppo:", labels[i])
 
-        df_reali = pd.DataFrame();
+        df_reali = pd.DataFrame()
         df_reali["Group"] = kmeans.labels_
         df_reali["Points_x"] = [self.src_list[index][0] for index in range(len(self.src_list))]
         df_reali["Points_y"] = [self.src_list[index][1] for index in range(len(self.src_list))]
         punti3d = []
         gruppi = df_reali.drop_duplicates(["Group"])["Group"]
         for gruppo in range(len(gruppi)):
-                print("CLUSTER N. " , gruppo)
+                #print("CLUSTER N. " , gruppo)
                 df_grupporeale= df_reali[df_reali.Group == gruppo].sort_values(by=["Points_y"])
-                print(df_grupporeale)
+                #print(df_grupporeale)
                 x = (df_grupporeale.Points_x.tolist())
                 y = (df_grupporeale.Points_y.tolist())
                 for i in range(len(x)):
                     punti3d.append([x[i],y[i]])
          
 
-        # Posizione nell'immagine di destinazione(manichino ideale)(espresaa come punti (x,y) del piano cartesiano puntato nell'angolo
+        # Posizione nell'immagine di destinazione(manichino ideale)(espressa come punti (x,y) del piano cartesiano puntato nell'angolo
         # in alto a sinistra con x crescente verso destra e y crescente verso il basso) rispettivamente di anca sx e dx,ginocchio sx e dx
         # caviglia sx e dx, testa e mento
-        self.dst_list = [[263, 121], [74, 121],[212, 330], [116, 330],[229,431],[101,431],[228,529],[100,529],[166,41],[166,114]]
+        self.dst_list = [[263, 121], [74, 121], [212, 330], [116, 330], [229, 431], [101, 431], [228, 529], [100, 529], [166, 41], [166, 114]]
+        print('Lista prima dell\' ordinamento:')
+        print(self.dst_list)
         self.dst_list  = sorted(self.dst_list, key = lambda a: (a[0], a[1]))
-        kmeans2 = KMeans(n_clusters=3, random_state=0).fit(self.dst_list)
-
-        print(kmeans2.labels_)
+        print('Lista dopo dell\' ordinamento:')
+        print(self.dst_list)
+        kmeans2 = KMeans(n_clusters=4, random_state=0).fit(self.dst_list)
+        labels2 = kmeans2.labels_
+        for i in range(len(self.dst_list)):
+            print("Elemento:", self.dst_list[i], " Gruppo:", labels2[i])
 
         df_ideale = pd.DataFrame()
         df_ideale["Group"] = kmeans2.labels_
@@ -250,13 +257,13 @@ class Homography():
         N_x_inv = correspondence[7]
 
         N = len(image_points)
-        print("Number of points in current view : ", N)
+        #print("Number of points in current view : ", N)
 
         M = np.zeros((2 * N, 9), dtype=np.float64)
-        print("Shape of Matrix M : ", M.shape)
+        #print("Shape of Matrix M : ", M.shape)
 
-        print("N_model\n", N_x)
-        print("N_observed\n", N_u)
+        #print("N_model\n", N_x)
+        #print("N_observed\n", N_u)
 
         # create row wise allotment for each 0-2i rows
         # that means 2 rows..
@@ -269,11 +276,11 @@ class Homography():
             M[2 * i] = row_1
             M[(2 * i) + 1] = row_2
 
-            print("p_model {0} \t p_obs {1}".format((X, Y), (u, v)))
+            #print("p_model {0} \t p_obs {1}".format((X, Y), (u, v)))
 
         # M.h  = 0 . solve system of linear equations using SVD
         u, s, vh = np.linalg.svd(M)
-        print("Computing SVD of M")
+        #print("Computing SVD of M")
         # print("U : Shape {0} : {1}".format(u.shape, u))
         # print("S : Shape {0} : {1}".format(s.shape, s))
         # print("V_t : Shape {0} : {1}".format(vh.shape, vh))
@@ -282,15 +289,15 @@ class Homography():
         h_norm = vh[np.argmin(s)]
         h_norm = h_norm.reshape(3, 3)
         # print("Normalized Homography Matrix : \n" , h_norm)
-        print(N_u_inv)
-        print(N_x)
+        #print(N_u_inv)
+        #print(N_x)
         # h = h_norm
         h = np.matmul(np.matmul(N_u_inv, h_norm), N_x)
 
         # if abs(h[2, 2]) > 10e-8:
         h = h[:, :] / h[2, 2]
 
-        print("Homography for View : \n", h)
+        #print("Homography for View : \n", h)
 
         if reproj:
             reproj_error = 0
@@ -299,7 +306,7 @@ class Homography():
                 t = np.matmul(h, t1).reshape(1, 3)
                 t = t / t[0][-1]
                 formatstring = "Imp {0} | ObjP {1} | Tx {2}".format(image_points[i], object_points[i], t)
-                print(formatstring)
+                #print(formatstring)
                 reproj_error += np.sum(np.abs(image_points[i] - t[0][:-1]))
             reproj_error = np.sqrt(reproj_error / N) / 100.0
             print("Reprojection error : ", reproj_error)
