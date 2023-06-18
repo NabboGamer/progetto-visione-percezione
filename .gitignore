@@ -16,3 +16,4 @@ litepose-pose-estimation/src/lp_model/__pycache__
 src/referee_gloves_detector/__pycache__
 .ipynb_checkpoints/webcam-keypoints-register-checkpoint.ipynb
 .idea
+src/referee_gloves_detector/resources/src.jpg
