@@ -1,11 +1,8 @@
 {
-  "path_covid_19_france_vaccinations_age_sexe_dep": "C:\\sviluppo\\Progetto Big Data\\dataset\\covid-19-france-vaccinations-age-sexe-dep.csv",
-  "path_economicref_france_indice_prix_consommation": "C:\\sviluppo\\Progetto Big Data\\dataset\\economicref-france-indice-prix-consommation.csv",
-  "path_elections_france_legislatives_2022_1er_tour_par_bureau_de_vote": "C:\\sviluppo\\Progetto Big Data\\dataset\\elections-france-legislatives-2022-1er-tour-par-bureau-de-vote.csv",
-  "path_elections_france_legislatives_2022_2nd_tour_par_bureau_de_vote": "C:\\sviluppo\\Progetto Big Data\\dataset\\elections-france-legislatives-2022-2nd-tour-par-bureau-de-vote.csv",
-  "path_elections_france_presidentielles_2022_1er_tour_par_bureau_de_vote": "C:\\sviluppo\\Progetto Big Data\\dataset\\elections-france-presidentielles-2022-1er-tour-par-bureau-de-vote.csv",
-  "path_elections_france_presidentielles_2022_2nd_tour_par_bureau_de_vote": "C:\\sviluppo\\Progetto Big Data\\dataset\\elections-france-presidentielles-2022-2nd-tour-par-bureau-de-vote.csv",
-  "path_labouref_france_departement_quarter_jobseeker": "C:\\sviluppo\\Progetto Big Data\\dataset\\labouref-france-departement-quarter-jobseeker.csv",
-  "path_prix_des_carburants_j_1_001": "C:\\sviluppo\\Progetto Big Data\\dataset\\prix-des-carburants-j-1-001.csv"
+  "path_big_arch": "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\litepose-pose-estimation\\src\\lp_trained_models\\bigarch",
+  "path_video": "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\referee.mp4",
+  "path_csv_keypoints": "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\src\\referee_gloves_detector\\resources\\keypoints.csv",
+  "path_csv_keypoints_video": "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\dataset_keypoints\\keypoints_video.csv",
+  "path_csv_keypoints_webcam": "C:\\Users\\stolf\\dev\\Progetto Visione e Percezione\\dataset_keypoints\\keypoints_webcam.csv"
 }
   
