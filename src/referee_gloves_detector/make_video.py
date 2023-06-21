@@ -5,7 +5,6 @@ from progress.bar import Bar
 
 """
 A utility function to merge together many frames into a video.
-
 """
 
 
