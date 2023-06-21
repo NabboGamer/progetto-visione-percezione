@@ -18,3 +18,5 @@ src/referee_gloves_detector/__pycache__
 .idea
 src/referee_gloves_detector/resources/src.jpg
 src/referee_gloves_detector/resources/test.jpg
+diff-overlay.jpg
+diff-color.jpg
